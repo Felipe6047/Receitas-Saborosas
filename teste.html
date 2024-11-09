@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Receitas Saborosas</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&family=Poppins:wght@600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <h1><i class="fas fa-utensils"></i> Receitas Saborosas</h1>
+            <nav>
+                <ul>
+                    <li><a href="#" onclick="showSection('pesquisa')"><i class="fas fa-search"></i> Busca de Receitas</a></li>
+                    <li><a href="#" onclick="showSection('receitas')"><i class="fas fa-book"></i> Receitas</a></li>
+                    <li><a href="#" onclick="showSection('cardapio')"><i class="fas fa-utensil-spoon"></i> Cardápio</a></li>
+                    <li><a href="#" onclick="showSection('historico')"><i class="fas fa-history"></i> Histórico</a></li>
+                    
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Seção de Pesquisa -->
+        <section id="pesquisa" class="search-section active">
+            <div class="container">
+                <h2>Encontre Receitas</h2>
+                <div class="search-container">
+                    <ul id="suggestionsList" class="suggestions"></ul>
+                    <input type="text" id="searchInput" placeholder="Buscar receitas por ingredientes...">
+                    <button onclick="searchRecipes()">Pesquisar <i class="fas fa-search"></i></button>
+                </div>
+                <h3>Sugestões de Receitas</h3>
+                <ul class="suggestions">
+                    <li>Arroz com Pequi</li>
+                    <li>Galinhada Tocantinense</li>
+                    <li>Empadão Tocantinense</li>
+                    <li>Pamonha</li>
+                    <li>Beijinho de Coco</li>
+                    <li>Peixe na Telha</li>
+                    <li>Pirão de Peixe</li>
+                    <li>Paçoca de Carne Seca</li>
+                    <li>Sopa Paraguaia</li>
+            
+                </ul>
+                <div id="recipesList" class="row"></div>
+            </div>
+        </section>
+
+        <!-- Seção de Receitas -->
+        <section id="receitas" class="hero">
+            <div class="container">
+                <h2>Receitas Típicas do Tocantins</h2>
+                <div class="recipe">
+                    <h3>Arroz com Pequi</h3>
+                    <div class="recipe-content">
+                        <div class="interactive-box">
+                            <img src="/imagens/Arroz com Pequi.jpg" alt="Arroz com Pequi" class="recipe-image">
+                            <iframe src="https://www.youtube.com/embed/RwvelfJ8FVU" frameborder="0" allowfullscreen class="recipe-video"></iframe>
+                        </div>
+                    </div>
+                    <button class="details-btn" onclick="toggleDetails(this)">Mostrar Detalhes <i class="fas fa-angle-down"></i></button>
+                    <div class="details" style="display: none;">
+                        <h4>Ingredientes:</h4>
+                        <ul>
+                            <li>2 xícaras de arroz</li>
+                            <li>1 xícara de pequi</li>
+                            <li>1 cebola picada</li>
+                            <li>3 dentes de alho picados</li>
+                            <li>Sal a gosto</li>
+                            <li>Água</li>
+                        </ul>
+                        <h4>Modo de Preparo:</h4>
+                        <p>Refogue a cebola e o alho, adicione o arroz e o pequi. Misture, adicione água e cozinhe até o arroz ficar macio.</p>
+                    </div>
+                </div>
+
+                <div class="recipe">
+                    <h3>Galinhada Tocantinense</h3>
+                    <div class="recipe-content">
+                        <div class="interactive-box">
+                            <img src="/imagens/Galinhada Tocantinense.jpg" alt="Galinhada Tocantinense" class="recipe-image">
+                            <iframe src="https://www.youtube.com/embed/d8XE_6V76uU" frameborder="0" allowfullscreen class="recipe-video"></iframe>
+                        </div>
+                    </div>
+                    <button class="details-btn" onclick="toggleDetails(this)">Mostrar Detalhes <i class="fas fa-angle-down"></i></button>
+                    <div class="details" style="display: none;">
+                        <h4>Ingredientes:</h4>
+                        <ul>
+                            <li>1 kg de frango</li>
+                            <li>2 xícaras de arroz</li>
+                            <li>1 cebola picada</li>
+                            <li>3 dentes de alho picados</li>
+                            <li>1 pimentão picado</li>
+                            <li>Temperos a gosto</li>
+                            <li>Água</li>
+                        </ul>
+                        <h4>Modo de Preparo:</h4>
+                        <p>Doure o frango na panela, adicione a cebola, alho e pimentão. Junte o arroz, misture e adicione água. Cozinhe até o arroz ficar pronto.</p>
+                    </div>
+                </div>
+
+                <div class="recipe">
+                    <h3>Empadão Tocantinense</h3>
+                    <div class="recipe-content">
+                        <div class="interactive-box">
+                            <img src="/imagens/Empadão Tocantinense.jpg" alt="Empadão Tocantinense" class="recipe-image">
+                            <iframe src="https://www.youtube.com/embed/F2npcDqkY5g" frameborder="0" allowfullscreen class="recipe-video"></iframe>
+                        </div>
+                    </div>
+                    <button class="details-btn" onclick="toggleDetails(this)">Mostrar Detalhes <i class="fas fa-angle-down"></i></button>
+                    <div class="details" style="display: none;">
+                        <h4>Ingredientes:</h4>
+                        <ul>
+                            <li>500g de carne moída</li>
+                            <li>1 cebola picada</li>
+                            <li>2 ovos cozidos</li>
+                            <li>500g de massa de empada</li>
+                            <li>Temperos a gosto</li>
+                        </ul>
+                        <h4>Modo de Preparo:</h4>
+                        <p>Refogue a carne com cebola e temperos. Coloque na massa de empada, adicione os ovos cozidos e cubra com mais massa. Asse até dourar.</p>
+                    </div>
+                </div>
+
+                <div class="recipe">
+                    <h3>Pamonha</h3>
+                    <div class="recipe-content">
+                        <div class="interactive-box">
+                            <img src="/imagens/Pamonha.jpg" alt="Pamonha" class="recipe-image">
+                            <iframe src="https://www.youtube.com/embed/4Vu_GrPTRhU" frameborder="0" allowfullscreen class="recipe-video"></iframe>
+                        </div>
+                    </div>
+                    <button class="details-btn" onclick="toggleDetails(this)">Mostrar Detalhes <i class="fas fa-angle-down"></i></button>
+                    <div class="details" style="display: none;">
+                        <h4>Ingredientes:</h4>
+                        <ul>
+                            <li>6 espigas de milho</li>
+                            <li>1 xícara de açúcar</li>
+                            <li>1/2 xícara de leite</li>
+                            <li>Sal a gosto</li>
+                        </ul>
+                        <h4>Modo de Preparo:</h4>
+                        <p>Rale o milho e misture com o açúcar, leite e sal. Envolva em folhas de milho e cozinhe em água fervente até firmar.</p>
+                    </div>
+                </div>
+
+                <div class="recipe">
+                    <h3>Beijinho de Coco</h3>
+                    <div class="recipe-content">
+                        <div class="interactive-box">
+                            <img src="/imagens/Beijinho de Coco.jpg" alt="Beijinho de Coco" class="recipe-image">
+                            <iframe src="https://www.youtube.com/embed/A13owoCNOKU" frameborder="0" allowfullscreen class="recipe-video"></iframe>
+                        </div>
+                    </div>
+                    <button class="details-btn" onclick="toggleDetails(this)">Mostrar Detalhes <i class="fas fa-angle-down"></i></button>
+                    <div class="details" style="display: none;">
+                        <h4>Ingredientes:</h4>
+                        <ul>
+                            <li>1 lata de leite condensado</li>
+                            <li>1 xícara de coco ralado</li>
+                            <li>1 colher de sopa de manteiga</li>
+                            <li>Granulado de chocolate para cobrir</li>
+                        </ul>
+                        <h4>Modo de Preparo:</h4>
+                        <p>Derreta a manteiga, adicione o leite condensado e o coco. Cozinhe até desgrudar da panela. Deixe esfriar e faça bolinhas, passando no granulado.</p>
+                    </div>
+                </div>
+
+                <div class="recipe">
+                    <h3>Peixe na Telha</h3>
+                    <div class="recipe-content">
+                        <div class="interactive-box">
+                            <img src="/imagens/Peixe na Telha.jpg" alt="Peixe na Telha" class="recipe-image">
+                            <iframe src="https://www.youtube.com/embed/eUi1GE-5kns" frameborder="0" allowfullscreen class="recipe-video"></iframe>
+                        </div>
+                    </div>
+                    <button class="details-btn" onclick="toggleDetails(this)">Mostrar Detalhes <i class="fas fa-angle-down"></i></button>
+                    <div class="details" style="display: none;">
+                        <h4>Ingredientes:</h4>
+                        <ul>
+                            <li>1 peixe pirarucu, tucunaré ou tilápia</li>
+                            <li>1 limão</li>
+                            <li>Sal e pimenta-do-reino a gosto</li>
+                            <li>2 dentes de alho picados</li>
+                            
+                            <li>1 cebola fatiada</li> 
+                            <li>2 tomates picados</li> 
+                            <li>1 pimentão</li> 
+                            <li>Cheiro-verde a gosto</li> 
+     			    <li>Azeite de oliva</li> 
+
+                           
+                        </ul>
+                        <h4>Modo de Preparo:</h4>
+                        <p>1. Tempere o peixe com limão, sal e pimenta e deixe marinar por 30 minutos.
+     2. Em uma frigideira, refogue o alho, a cebola, os tomates e o pimentão.
+     3. Coloque o peixe na telha de barro, cubra com o refogado e leve ao forno por cerca de 40 minutos até que o peixe esteja cozido e suculento.
+     4. Finalize com cheiro-verde e sirva com arroz branco e farofa.
+
+
+                    </div>
+                </div>
+                <div class="recipe">
+                    <h3>Pirão de Peixe</h3>
+                    <div class="recipe-content">
+                        <div class="interactive-box">
+                            <img src="/imagens/Pirão de Peixe.jpg" alt="Pirão de Peixe" class="recipe-image">
+                            <iframe src="https://www.youtube.com/embed/1JY4Zp2it7w" frameborder="0" allowfullscreen class="recipe-video"></iframe>
+                        </div>
+                    </div>
+                    <button class="details-btn" onclick="toggleDetails(this)">Mostrar Detalhes <i class="fas fa-angle-down"></i></button>
+                    <div class="details" style="display: none;">
+                        <h4>Ingredientes:</h4>
+                        <ul>
+                  <li>Cabeças e espinhas de peixe (usadas para o caldo)</li>
+                  <li>1 litro de água</li>
+                  <li>1 cebola</li>
+                  <li>2 dentes de alho</li>
+                  <li>Sal a gosto</li>
+                  <li>Farinha de mandioca (para engrossar)</li>
+
+
+                           
+                        </ul>
+                        <h4>Modo de Preparo:</h4>
+                        <p>1. Cozinhe as cabeças e espinhas de peixe na água com alho, cebola e sal até obter um caldo saboroso.
+     2. Coe o caldo, leve ao fogo novamente e acrescente a farinha de mandioca aos poucos, mexendo sempre até obter a consistência desejada.
+     3. Sirva o pirão acompanhando pratos de peixe.
+
+
+
+                    </div>
+                </div>
+
+                <div class="recipe">
+                    <h3>Paçoca de Carne Seca</h3>
+                    <div class="recipe-content">
+                        <div class="interactive-box">
+                            <img src="/imagens/Paçoca de Carne Seca.jpg" alt="Paçoca de Carne Seca" class="recipe-image">
+                            <iframe src="https://www.youtube.com/embed/bFEphR5AJBg" frameborder="0" allowfullscreen class="recipe-video"></iframe>
+                        </div>
+                    </div>
+                    <button class="details-btn" onclick="toggleDetails(this)">Mostrar Detalhes <i class="fas fa-angle-down"></i></button>
+                    <div class="details" style="display: none;">
+                        <h4>Ingredientes:</h4>
+                        <ul>
+           <li>300g de carne seca ou carne de sol dessalgada e desfiada</li>
+           <li>1 cebola picada</li>
+           <li>2 dentes de alho picados</li>
+           <li>Farinha de mandioca</li>
+           <li>Cheiro-verde a gosto</li>
+           <li>Azeite ou óleo</li>
+
+
+
+                           
+                        </ul>
+                        <h4>1. Refogue a carne seca desfiada com alho e cebola até dourar. 
+                            2. Acrescente a farinha de mandioca aos poucos, misturando até formar uma farofa úmida.
+                             3. Finalize com cheiro-verde e sirva com arroz, feijão ou salada.
+
+
+
+
+                    </div>
+                </div>
+
+                <div class="recipe">
+                    <h3>Sopa Paraguaia</h3>
+                    <div class="recipe-content">
+                        <div class="interactive-box">
+                            <img src="/imagens/Sopa Paraguaia.jpg" alt="Sopa Paraguaia" class="recipe-image">
+                            <iframe src="https://www.youtube.com/embed/pUC5vmTQhYE" frameborder="0" allowfullscreen class="recipe-video"></iframe>
+                        </div>
+                    </div>
+                    <button class="details-btn" onclick="toggleDetails(this)">Mostrar Detalhes <i class="fas fa-angle-down"></i></button>
+                    <div class="details" style="display: none;">
+                        <h4>Ingredientes:</h4>
+                        <ul>
+        <li>2 xícaras de flocos de milho</li>
+     	<li>2 xícaras de leite<li>
+     	<li>2 ovos</li>
+     	<li>1 cebola picada</li>
+     	<li>1 xícara de queijo ralado (meia cura ou minas)</li>
+     	<li>Sal a gosto</li>
+     	<li>Manteiga ou óleo</li>
+
+
+
+
+                           
+                        </ul>
+                        <h4> 1. Hidrate o milho com o leite e reserve por 15 minutos.
+     2. Bata os ovos e misture com a cebola, o queijo e o sal.
+     3. Adicione o milho hidratado e misture bem.
+     4. junte uma forma, despeje a massa e asse em forno pré-aquecido a 180ºC por cerca de 30 minutos.
+
+
+
+
+                    </div>
+                </div>
+
+                
+                
+
+            </div>
+        </section>
+
+        <!-- Seção de Cardápio -->
+        <section id="cardapio" class="hero">
+            <div class="container">
+                <h2>Cardápio do Dia</h2>
+                <ul class="cardapio-list">
+                    <li>
+                        <h3>Almoço: Arroz com Pequi</h3>
+                        <div class="interactive-box">
+                            <img src="/imagens/Arroz com Pequi.jpg" alt="Arroz com Pequi">
+                        </div>
+                    </li>
+                
+                    <li>
+                        <h3>Almoço: Galinhada Tocantinense</h3>
+                        <div class="interactive-box">
+                            <img src="/imagens/Galinhada Tocantinense.jpg" alt="Galinhada Tocantinense">
+                        </div>
+                    </li>
+
+                    <li>
+                        <h3>Almoço: Empadão Tocantinense</h3>
+                        <div class="interactive-box">
+                            <img src="/imagens/Empadão Tocantinense.jpg" alt="Empadão Tocantinense">
+                        </div>
+                    </li>
+            
+                    <li>
+                        <h3>Almoço: Pamonha</h3>
+                        <div class="interactive-box">
+                            <img src="/imagens/Pamonha.jpg" alt="Pamonha">
+                        </div>
+                    </li>
+
+                    <li>
+                        <h3>Almoço: Beijinho de Coco</h3>
+                        <div class="interactive-box">
+                            <img src="/imagens/Beijinho de Coco.jpg" alt="Beijinho de Coco">
+                        </div>
+                    </li>
+
+                    <li>
+                        <h3>Almoço: Peixe na Telha</h3>
+                        <div class="interactive-box">
+                            <img src="/imagens/Peixe na Telha.jpg" alt="Peixe na Telha">
+                        </div>
+                    </li>
+
+                    <li>
+                        <h3>Almoço: Pirão de Peixe</h3>
+                        <div class="interactive-box">
+                            <img src="/imagens/Pirão de Peixe.jpg" alt="Pirão de Peixe">
+                        </div>
+                    </li>
+
+                    <li>
+                        <h3>Almoço: Paçoca de Carne Seca</h3>
+                        <div class="interactive-box">
+                            <img src="/imagens/Paçoca de Carne Seca.jpg" alt="Paçoca de Carne Seca">
+                        </div>
+                    </li>
+
+                    <li>
+                        <h3>Almoço: Sopa Paraguaia</h3>
+                        <div class="interactive-box">
+                            <img src="/imagens/Sopa Paraguaia.jpg" alt="Sopa Paraguaia">
+                        </div>
+                    </li>
+
+                </ul>
+
+            </div>
+        </section>
+
+        <!-- Seção de Histórico -->
+        <section id="historico" class="hero">
+            <div class="container">
+                <h2>Histórico de Receitas</h2>
+                <ul id="historicoList"></ul>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Receitas Saborosas. Todos os direitos reservados.</p>
+    </footer>
+
+    <script src="javinho.js"></script>
+</body>
+
+</html>
